@@ -1,0 +1,13 @@
+version: 2.1
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: Download Tools
+          command: |
+            curl -Lo ./kind "https://kind.sigs.k8s.io/dl/v0.10.0/kind-$(uname)-amd64"
+            chmod +x ./kind
+            mv ./kind /usr/local/kind
+            kind -h
